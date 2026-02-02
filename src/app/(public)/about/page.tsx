@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { SCHOOL_NAME } from '@/constants';
-import { Heart, Lightbulb, Eye, Smile, Star, Sparkles, Sun, BookOpen } from 'lucide-react';
+import { SCHOOL_NAME, SCHOOL_VISION, SCHOOL_MISSION, CORE_VALUES, SCHOOL_OBJECTIVES } from '@/constants';
+import { Heart, Star, Sparkles, Sun, BookOpen, Trophy, Shield, Lightbulb, Users, Target, Eye, CheckCircle } from 'lucide-react';
 
-const values = [
-  { icon: Heart, title: 'Kindness', color: 'bg-pink-100 text-pink-500' },
-  { icon: Lightbulb, title: 'Curiosity', color: 'bg-yellow-100 text-yellow-500' },
-  { icon: Eye, title: 'Discovery', color: 'bg-blue-100 text-blue-500' },
-  { icon: Smile, title: 'Joy', color: 'bg-green-100 text-green-500' },
+const valueIcons = [
+  { icon: Trophy, color: 'text-yellow-500' },
+  { icon: Shield, color: 'text-blue-500' },
+  { icon: Heart, color: 'text-pink-500' },
+  { icon: Lightbulb, color: 'text-purple-500' },
+  { icon: Users, color: 'text-green-500' },
 ];
 
 const team = [
@@ -47,60 +48,81 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story - Simplified */}
+      {/* Vision & Mission */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="text-6xl mb-6 animate-bounce-slow">🏠</div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">How We Started</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {SCHOOL_NAME} began in 2005 with one classroom and a big dream:
-              to create a warm, happy place where little ones could learn at their own pace.
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed mt-4">
-              Today, we&apos;re a community of over 100 families, but we still feel like home.
-              <span className="text-[#4F7942] font-medium"> Small classes. Big hearts.</span>
-            </p>
+          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            {/* Vision */}
+            <Card className="hover-grow border-2 border-dashed border-gray-200">
+              <CardContent className="pt-6 text-center">
+                <div className="mx-auto w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                  <Eye className="h-8 w-8 text-purple-500" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-3">Our Vision 🌟</h2>
+                <p className="text-gray-600 leading-relaxed">{SCHOOL_VISION}</p>
+              </CardContent>
+            </Card>
+            {/* Mission */}
+            <Card className="hover-grow border-2 border-dashed border-gray-200">
+              <CardContent className="pt-6 text-center">
+                <div className="mx-auto w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <Target className="h-8 w-8 text-blue-500" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-3">Our Mission 🎯</h2>
+                <p className="text-gray-600 leading-relaxed">{SCHOOL_MISSION}</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-16 bg-white">
+      {/* Core Values */}
+      <section className="py-16 bg-gradient-to-b from-amber-50 to-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-10">
-            What We Believe <span className="inline-block animate-wiggle">✨</span>
+            Our Core Values ✨
           </h2>
-          <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="text-center p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border-2 border-dashed border-gray-200 hover-grow cursor-default"
-              >
-                <div className="mx-auto w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-3">
-                  <value.icon className={`h-8 w-8 ${value.color.split(' ')[1]}`} />
+          <div className="grid gap-6 grid-cols-2 lg:grid-cols-5 max-w-5xl mx-auto">
+            {CORE_VALUES.map((value, i) => {
+              const IconComponent = valueIcons[i].icon;
+              return (
+                <div
+                  key={value.title}
+                  className="text-center p-5 rounded-2xl bg-gradient-to-b from-gray-50 to-white border-2 border-dashed border-gray-200 hover-grow cursor-default"
+                >
+                  <div className="mx-auto w-14 h-14 rounded-full bg-white shadow-lg flex items-center justify-center mb-3">
+                    <IconComponent className={`h-7 w-7 ${valueIcons[i].color}`} />
+                  </div>
+                  <h3 className="font-bold text-gray-800 text-sm">{value.title}</h3>
+                  <p className="text-xs text-gray-500 mt-2">{value.description}</p>
                 </div>
-                <h3 className="font-bold text-gray-800">{value.title}</h3>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Montessori Quote */}
+      {/* Objectives */}
       <section className="py-16 bg-[#4F7942] relative overflow-hidden">
-        <div className="absolute top-5 left-10 animate-float opacity-20">
+        <div className="absolute top-5 left-10 opacity-20">
           <Sparkles className="h-16 w-16 text-white" />
         </div>
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center text-white">
-            <p className="text-2xl font-medium italic">
-              &ldquo;Follow the child.&rdquo;
-            </p>
-            <p className="mt-3 text-white/70">— Maria Montessori</p>
-            <p className="mt-6 text-white/90">
-              We let children lead the way. They show us what they&apos;re ready to learn!
-            </p>
+        <div className="absolute bottom-5 right-10 opacity-20">
+          <Star className="h-12 w-12 text-white" />
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <h2 className="text-3xl font-bold text-white text-center mb-10">
+            What We Aim to Achieve 🎯
+          </h2>
+          <div className="max-w-2xl mx-auto space-y-4">
+            {SCHOOL_OBJECTIVES.map((objective, i) => (
+              <div key={i} className="flex items-start gap-4 bg-white/10 rounded-xl p-4">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="h-5 w-5 text-white" />
+                </div>
+                <p className="text-white/90">{objective}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -112,10 +134,10 @@ export default function AboutPage() {
             Meet Our Teachers <span className="inline-block animate-wave">👋</span>
           </h2>
           <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            {team.map((member, i) => (
+            {team.map((member) => (
               <Card key={member.name} className="hover-grow text-center">
                 <CardContent className="pt-6">
-                  <div className={`text-5xl mb-3 ${i % 2 === 0 ? 'animate-bounce-slow' : 'animate-float'}`}>
+                  <div className="text-5xl mb-3">
                     {member.emoji}
                   </div>
                   <h3 className="font-bold text-gray-800">{member.name}</h3>

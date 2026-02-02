@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { SCHOOL_NAME, PROGRAMS } from '@/constants';
+import { SCHOOL_NAME, SCHOOL_TAGLINE, PROGRAMS } from '@/constants';
 import { Heart, Sparkles, TreePine, Sun, Star, ArrowRight, Baby, Palette, Music } from 'lucide-react';
 
 const features = [
@@ -52,11 +52,11 @@ export default function HomePage() {
               <span className="text-sm font-medium text-gray-600">Welcome to {SCHOOL_NAME}!</span>
             </div>
             <h1 className="text-4xl font-bold text-gray-800 sm:text-5xl lg:text-6xl leading-tight">
-              Where Little Ones
-              <span className="text-[#4F7942] block">Learn & Grow</span>
+              {SCHOOL_TAGLINE}
+              <span className="text-[#4F7942] block">at {SCHOOL_NAME} 🌟</span>
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              A happy place for children ages 0-6 to explore, play, and discover.
+              A safe, structured, and excellence-driven early learning environment for children ages 0-6.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="bg-[#4F7942] hover:bg-[#3d5f34] text-lg hover-grow" asChild>
