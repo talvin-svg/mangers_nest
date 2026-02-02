@@ -72,12 +72,12 @@ export default function AboutPage() {
             What We Believe <span className="inline-block animate-wiggle">✨</span>
           </h2>
           <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            {values.map((value, i) => (
+            {values.map((value) => (
               <div
                 key={value.title}
                 className="text-center p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border-2 border-dashed border-gray-200 hover-grow cursor-default"
               >
-                <div className={`mx-auto w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-3 ${i % 2 === 0 ? 'animate-bounce-slow' : 'animate-float'}`}>
+                <div className="mx-auto w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-3">
                   <value.icon className={`h-8 w-8 ${value.color.split(' ')[1]}`} />
                 </div>
                 <h3 className="font-bold text-gray-800">{value.title}</h3>

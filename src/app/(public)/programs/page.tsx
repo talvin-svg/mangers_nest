@@ -74,10 +74,10 @@ export default function ProgramsPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid gap-8 lg:grid-cols-3">
-            {programs.map((program, i) => (
-              <Card key={program.name} className={`hover-grow overflow-hidden border-2`}>
+            {programs.map((program) => (
+              <Card key={program.name} className="hover-grow overflow-hidden border-2">
                 <div className={`bg-gradient-to-b ${program.color} p-6 text-center`}>
-                  <div className={`mx-auto w-20 h-20 rounded-full ${program.iconColor} flex items-center justify-center mb-3 ${i % 2 === 0 ? 'animate-bounce-slow' : 'animate-float'}`}>
+                  <div className={`mx-auto w-20 h-20 rounded-full ${program.iconColor} flex items-center justify-center mb-3`}>
                     <span className="text-4xl">{program.emoji}</span>
                   </div>
                   <h2 className="text-2xl font-bold text-gray-800">{program.name}</h2>

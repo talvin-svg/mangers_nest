@@ -74,12 +74,12 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid gap-6 grid-cols-2 lg:grid-cols-4">
-            {features.map((feature, i) => (
+            {features.map((feature) => (
               <div
                 key={feature.title}
                 className="text-center p-6 rounded-2xl bg-gradient-to-b from-gray-50 to-white border-2 border-dashed border-gray-200 hover-grow cursor-default"
               >
-                <div className={`mx-auto w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-3 ${i % 2 === 0 ? 'animate-bounce-slow' : 'animate-float'}`}>
+                <div className="mx-auto w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-3">
                   <feature.icon className={`h-8 w-8 ${feature.color}`} />
                 </div>
                 <h3 className="font-bold text-gray-800">{feature.title}</h3>

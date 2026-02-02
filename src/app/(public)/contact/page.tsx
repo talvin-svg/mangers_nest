@@ -109,7 +109,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0 animate-bounce-slow">
+                  <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0">
                     <MapPin className="h-6 w-6 text-pink-500" />
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 animate-float">
+                  <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 animate-bounce-slow">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
                     <Mail className="h-6 w-6 text-blue-500" />
                   </div>
                   <div>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0 animate-float">
+                  <div className="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center flex-shrink-0">
                     <Clock className="h-6 w-6 text-yellow-500" />
                   </div>
                   <div>
@@ -151,7 +151,7 @@ export default function ContactPage() {
                 <CardContent className="p-0">
                   <div className="aspect-video bg-gradient-to-br from-green-100 to-blue-100 flex items-center justify-center">
                     <div className="text-center">
-                      <MapPin className="h-12 w-12 mx-auto mb-2 text-[#4F7942] animate-bounce-slow" />
+                      <MapPin className="h-12 w-12 mx-auto mb-2 text-[#4F7942]" />
                       <p className="text-gray-500 text-sm">Map goes here!</p>
                     </div>
                   </div>
@@ -160,7 +160,7 @@ export default function ContactPage() {
 
               {/* Quick CTA */}
               <Card className="bg-[#4F7942] text-white relative overflow-hidden">
-                <div className="absolute top-2 right-2 animate-float opacity-30">
+                <div className="absolute top-2 right-2 opacity-30">
                   <Star className="h-8 w-8 text-white" />
                 </div>
                 <CardContent className="pt-6 text-center relative">

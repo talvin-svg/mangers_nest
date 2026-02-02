@@ -57,9 +57,9 @@ export default function AdmissionsPage() {
             How to Enroll <span className="inline-block animate-wiggle">✨</span>
           </h2>
           <div className="grid gap-6 grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            {steps.map((step, i) => (
+            {steps.map((step) => (
               <div key={step.num} className="text-center">
-                <div className={`mx-auto w-20 h-20 rounded-full bg-[#4F7942] text-white flex items-center justify-center mb-4 text-3xl ${i % 2 === 0 ? 'animate-bounce-slow' : 'animate-float'}`}>
+                <div className="mx-auto w-20 h-20 rounded-full bg-[#4F7942] text-white flex items-center justify-center mb-4 text-3xl">
                   {step.emoji}
                 </div>
                 <div className="text-sm font-bold text-[#4F7942]">Step {step.num}</div>
@@ -123,18 +123,18 @@ export default function AdmissionsPage() {
 
       {/* CTA */}
       <section className="py-16 bg-[#4F7942] relative overflow-hidden">
-        <div className="absolute top-5 left-10 animate-float opacity-20">
+        <div className="absolute top-5 left-10 opacity-20">
           <Star className="h-20 w-20 text-white" />
         </div>
-        <div className="absolute bottom-5 right-10 animate-bounce-slow opacity-20">
+        <div className="absolute bottom-5 right-10 opacity-20">
           <Heart className="h-16 w-16 text-white" />
         </div>
-        <div className="absolute top-10 right-40 animate-wiggle opacity-20 hidden lg:block">
+        <div className="absolute top-10 right-40 opacity-20 hidden lg:block">
           <Sun className="h-12 w-12 text-white" />
         </div>
         <div className="container mx-auto px-4 text-center relative">
           <h2 className="text-3xl font-bold text-white">
-            Ready? Let&apos;s Talk! <span className="inline-block animate-wave">📞</span>
+            Ready? Let&apos;s Talk! 📞
           </h2>
           <p className="mt-3 text-white/90 text-lg">
             We&apos;d love to meet your family.
