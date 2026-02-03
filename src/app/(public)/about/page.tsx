@@ -1,16 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { SCHOOL_NAME, SCHOOL_VISION, SCHOOL_MISSION, CORE_VALUES, SCHOOL_OBJECTIVES } from '@/constants';
-import { Heart, Star, Trophy, Shield, Lightbulb, Users, Target, Eye, CheckCircle, Sun, Sparkles } from 'lucide-react';
+import { Heart, Star, Trophy, Shield, Lightbulb, Users, Target, Eye, Sparkles, BookOpen, ChevronRight, ArrowRight } from 'lucide-react';
 
-const valueIcons = [
-  { icon: Trophy, color: 'bg-amber-500' },
-  { icon: Shield, color: 'bg-blue-500' },
-  { icon: Heart, color: 'bg-pink-500' },
-  { icon: Lightbulb, color: 'bg-purple-500' },
-  { icon: Users, color: 'bg-green-500' },
+const valueIcons = [Trophy, Shield, Heart, Lightbulb, Users];
+const valueColors = [
+  { ring: 'border-amber-400 bg-amber-400', text: 'text-amber-500', bg: 'bg-amber-50' },
+  { ring: 'border-[#00ADEF] bg-[#00ADEF]', text: 'text-[#00ADEF]', bg: 'bg-cyan-50' },
+  { ring: 'border-pink-400 bg-pink-400', text: 'text-pink-500', bg: 'bg-pink-50' },
+  { ring: 'border-purple-400 bg-purple-400', text: 'text-purple-500', bg: 'bg-purple-50' },
+  { ring: 'border-green-400 bg-green-400', text: 'text-green-500', bg: 'bg-green-50' },
 ];
 
 const team = [
@@ -23,135 +26,209 @@ const team = [
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero with Image */}
-      <section className="relative min-h-[400px] overflow-hidden">
-        <Image
-          src="/stock/nest_4.png.JPG"
-          alt="About MNIS"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/90 to-[#00ADEF]/70" />
+      {/* Hero — text-only gradient with animated blobs */}
+      <section className="relative min-h-[450px] overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#009AD8] to-[#0080B8]">
+        <div className="absolute top-[-50px] right-[-30px] w-72 h-72 bg-[#FFE066]/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-[-70px] left-[-50px] w-96 h-96 bg-[#FF6B6B]/15 rounded-full blur-3xl animate-bounce-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-white/5 rounded-full blur-2xl" />
+        <div className="absolute top-14 right-24 animate-float opacity-15 hidden md:block">
+          <BookOpen className="h-16 w-16 text-white" />
+        </div>
+        <div className="absolute bottom-16 left-20 animate-bounce-slow opacity-15 hidden md:block">
+          <Heart className="h-12 w-12 text-white" />
+        </div>
+        <div className="absolute top-1/3 right-1/3 animate-wiggle opacity-10 hidden lg:block">
+          <Star className="h-10 w-10 text-white" />
+        </div>
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-white">
-              <span className="text-[#FFE066] font-semibold text-lg">About Us</span>
-              <h1 className="text-4xl sm:text-5xl font-bold mt-2">
-                Our Story 📖
+            <div className="max-w-3xl text-white relative">
+              <span className="text-[#FFE066] font-semibold text-lg tracking-wide uppercase">About {SCHOOL_NAME}</span>
+              <h1 className="text-5xl sm:text-6xl font-bold mt-3 leading-tight">
+                Our Story
               </h1>
-              <p className="mt-4 text-xl text-white/90">
-                A place where every child is celebrated and excellence begins!
+              <p className="mt-5 text-xl text-white/85 max-w-xl">
+                A place where every child is celebrated, every teacher is family,
+                and excellence is the standard.
               </p>
+              <Button size="lg" className="mt-8 bg-white text-[#00ADEF] hover:bg-white/90 rounded-full px-8 text-lg font-semibold" asChild>
+                <a href="#values">
+                  What We Stand For <ChevronRight className="ml-1 h-5 w-5" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Vision & Mission — tabbed interface */}
       <section className="py-20 bg-[#FFF8F0] relative overflow-hidden">
         <div className="absolute top-10 right-10 animate-float opacity-20 hidden md:block">
-          <Sun className="h-16 w-16 text-amber-400" />
-        </div>
-        <div className="absolute bottom-10 left-10 animate-bounce-slow opacity-20 hidden md:block">
-          <Star className="h-12 w-12 text-pink-400" />
+          <Eye className="h-16 w-16 text-purple-300" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-            {/* Vision */}
-            <Card className="rounded-3xl shadow-xl border-0 overflow-hidden">
-              <div className="h-2 bg-gradient-to-r from-purple-500 to-pink-500" />
-              <CardContent className="pt-8 pb-8">
-                <div className="mx-auto w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-6">
-                  <Eye className="h-10 w-10 text-purple-500" />
+          <div className="max-w-3xl mx-auto">
+            <Tabs defaultValue="vision" className="gap-0">
+              <TabsList className="mx-auto bg-white shadow-lg rounded-full p-1.5 h-auto gap-1 mb-10">
+                <TabsTrigger
+                  value="vision"
+                  className="rounded-full px-8 py-3 text-base font-semibold data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all"
+                >
+                  <Eye className="h-5 w-5 mr-2" />
+                  Our Vision
+                </TabsTrigger>
+                <TabsTrigger
+                  value="mission"
+                  className="rounded-full px-8 py-3 text-base font-semibold data-[state=active]:bg-[#00ADEF] data-[state=active]:text-white data-[state=active]:shadow-md transition-all"
+                >
+                  <Target className="h-5 w-5 mr-2" />
+                  Our Mission
+                </TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="vision">
+                <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl p-10 sm:p-14 text-white relative overflow-hidden shadow-2xl">
+                  <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/5 rounded-full" />
+                  <div className="absolute bottom-6 right-8 opacity-10">
+                    <Eye className="h-32 w-32" />
+                  </div>
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mb-6">
+                      <Eye className="h-8 w-8 text-white" />
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-bold">Our Vision</h2>
+                    <p className="mt-6 text-white/85 text-xl leading-relaxed max-w-xl">
+                      {SCHOOL_VISION}
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800 text-center mb-4">Our Vision 🌟</h2>
-                <p className="text-gray-600 text-center leading-relaxed">{SCHOOL_VISION}</p>
-              </CardContent>
-            </Card>
-            {/* Mission */}
-            <Card className="rounded-3xl shadow-xl border-0 overflow-hidden">
-              <div className="h-2 bg-gradient-to-r from-cyan-500 to-blue-500" />
-              <CardContent className="pt-8 pb-8">
-                <div className="mx-auto w-20 h-20 rounded-full bg-cyan-100 flex items-center justify-center mb-6">
-                  <Target className="h-10 w-10 text-cyan-500" />
+              </TabsContent>
+
+              <TabsContent value="mission">
+                <div className="bg-gradient-to-br from-[#00ADEF] to-[#0080B8] rounded-3xl p-10 sm:p-14 text-white relative overflow-hidden shadow-2xl">
+                  <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-white/5 rounded-full" />
+                  <div className="absolute top-6 right-8 opacity-10">
+                    <Target className="h-32 w-32" />
+                  </div>
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mb-6">
+                      <Target className="h-8 w-8 text-white" />
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-bold">Our Mission</h2>
+                    <p className="mt-6 text-white/85 text-xl leading-relaxed max-w-xl">
+                      {SCHOOL_MISSION}
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800 text-center mb-4">Our Mission 🎯</h2>
-                <p className="text-gray-600 text-center leading-relaxed">{SCHOOL_MISSION}</p>
-              </CardContent>
-            </Card>
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-20 left-10 animate-wiggle opacity-10 hidden lg:block">
-          <Heart className="h-20 w-20 text-pink-400" />
-        </div>
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-12">
+      {/* Core Values — horizontal snap-scroll */}
+      <section id="values" className="py-20 bg-white relative overflow-hidden scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
             <span className="text-[#FF6B6B] font-semibold text-lg">What We Stand For</span>
-            <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Our Core Values ✨
+            <h2 className="text-4xl font-bold text-gray-800 mt-2 flex items-center justify-center gap-3">
+              Our Core Values
+              <Trophy className="h-9 w-9 text-[#FFE066]" />
             </h2>
           </div>
-          <div className="grid gap-6 grid-cols-2 lg:grid-cols-5 max-w-5xl mx-auto">
+        </div>
+
+        {/* Scrollable strip — full bleed */}
+        <div className="relative">
+          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-[max(1rem,calc((100vw-72rem)/2+1rem))] pb-6 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
             {CORE_VALUES.map((value, i) => {
-              const IconComponent = valueIcons[i].icon;
+              const Icon = valueIcons[i];
+              const c = valueColors[i];
               return (
                 <div
                   key={value.title}
-                  className="text-center p-6 rounded-3xl bg-white shadow-lg hover-grow border-2 border-gray-100"
+                  className="snap-center flex-shrink-0 w-[300px] sm:w-[340px] group"
                 >
-                  <div className={`mx-auto w-16 h-16 rounded-full ${valueIcons[i].color} flex items-center justify-center mb-4 shadow-md`}>
-                    <IconComponent className="h-8 w-8 text-white" />
+                  <div className={`${c.bg} border-2 ${c.ring.split(' ')[0]} rounded-3xl p-8 h-full relative overflow-hidden hover-grow`}>
+                    {/* Large faded number */}
+                    <span className={`absolute top-4 right-6 text-8xl font-black ${c.text} opacity-10 select-none leading-none`}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    {/* Icon */}
+                    <div className={`w-14 h-14 rounded-2xl ${c.ring.split(' ')[1]} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                      <Icon className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">{value.title}</h3>
+                    <p className="mt-3 text-gray-500 leading-relaxed text-base">{value.description}</p>
                   </div>
-                  <h3 className="font-bold text-gray-800">{value.title}</h3>
-                  <p className="text-xs text-gray-500 mt-2">{value.description}</p>
                 </div>
               );
             })}
           </div>
+          {/* Scroll hint */}
+          <div className="flex items-center justify-center gap-2 mt-4 text-gray-400 text-sm">
+            <span>Swipe to explore</span>
+            <ArrowRight className="h-4 w-4 animate-bounce-slow" />
+          </div>
         </div>
       </section>
 
-      {/* Image + Text Section */}
-      <section className="py-20 bg-gradient-to-b from-[#E8F7FC] to-white">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div className="order-2 lg:order-1">
-              <span className="text-[#00ADEF] font-semibold text-lg">Why Choose Us</span>
-              <h2 className="text-4xl font-bold text-gray-800 mt-2">
-                Excellence in Every Detail 🏆
-              </h2>
-              <div className="mt-8 space-y-4">
-                {SCHOOL_OBJECTIVES.map((objective, i) => (
-                  <div key={i} className="flex items-start gap-4 bg-white rounded-2xl p-4 shadow-md">
-                    <div className="w-10 h-10 rounded-full bg-[#00ADEF] flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="h-5 w-5 text-white" />
-                    </div>
-                    <p className="text-gray-700">{objective}</p>
-                  </div>
-                ))}
-              </div>
+      {/* Why Choose Us — editorial text with inline highlights */}
+      <section className="py-20 bg-gradient-to-b from-[#E8F7FC] to-white relative overflow-hidden">
+        <div className="absolute bottom-10 right-10 animate-float opacity-10 hidden lg:block">
+          <Star className="h-14 w-14 text-amber-400" />
+        </div>
+        <div className="absolute top-20 left-10 animate-wiggle opacity-10 hidden lg:block">
+          <Sparkles className="h-16 w-16 text-cyan-400" />
+        </div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-[#00ADEF] font-semibold text-lg">Why Choose MNIS</span>
+            <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-12">
+              What Sets Us Apart
+            </h2>
+
+            <div className="space-y-8">
+              {SCHOOL_OBJECTIVES.map((objective, i) => (
+                <div
+                  key={i}
+                  className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:rounded-full group"
+                  style={{
+                    // Alternating left-border colors
+                    ['--tw-before-bg' as string]: 'currentColor',
+                  }}
+                >
+                  <div
+                    className={`absolute left-0 top-0 bottom-0 w-1 rounded-full ${
+                      i === 0 ? 'bg-[#00ADEF]' : i === 1 ? 'bg-[#FF6B6B]' : 'bg-[#FFE066]'
+                    }`}
+                  />
+                  <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-medium">
+                    {objective}
+                  </p>
+                </div>
+              ))}
             </div>
-            <div className="relative order-1 lg:order-2">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+
+            {/* Image tucked in below */}
+            <div className="mt-16 relative">
+              <div className="aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="/stock/nest_5.png.JPG"
                   alt="Our school"
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/40 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[#FF6B6B] rounded-full -z-10" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#FFE066] rounded-full -z-10" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#FFE066] rounded-full -z-10" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#FF6B6B] rounded-full -z-10" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team — overlapping photo grid */}
       <section className="py-20 bg-[#FFF8F0] relative overflow-hidden">
         <div className="absolute top-10 left-10 animate-float opacity-20 hidden md:block">
           <Sparkles className="h-14 w-14 text-cyan-400" />
@@ -160,66 +237,78 @@ export default function AboutPage() {
           <Star className="h-12 w-12 text-amber-400" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <span className="text-[#FF6B6B] font-semibold text-lg">Our Team</span>
-            <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Meet Our Teachers 👋
+            <h2 className="text-4xl font-bold text-gray-800 mt-2 flex items-center justify-center gap-3">
+              Meet Our Teachers
+              <Users className="h-9 w-9 text-[#00ADEF]" />
             </h2>
           </div>
-          <div className="grid gap-8 grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
-            {team.map((member) => (
-              <Card key={member.name} className="hover-grow text-center rounded-3xl shadow-lg border-0 overflow-hidden">
-                <div className="relative h-48">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                  />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {team.map((member, i) => {
+              const colors = ['bg-[#FF6B6B]', 'bg-[#00ADEF]', 'bg-[#FFE066]', 'bg-purple-500'];
+              const textColors = ['text-white', 'text-white', 'text-amber-900', 'text-white'];
+              return (
+                <div key={member.name} className="group relative">
+                  <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-xl relative">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="font-bold text-white text-lg">{member.name}</h3>
+                      <div className={`inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold ${colors[i]} ${textColors[i]}`}>
+                        {member.role}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <CardContent className="pt-4 pb-6">
-                  <h3 className="font-bold text-gray-800">{member.name}</h3>
-                  <p className="text-sm text-[#00ADEF]">{member.role}</p>
-                </CardContent>
-              </Card>
-            ))}
+              );
+            })}
           </div>
-          <p className="text-center text-gray-500 mt-8">
-            + our amazing assistant teachers and staff! 💕
-          </p>
+
+          <div className="mt-10 flex items-center justify-center gap-3">
+            <div className="h-px flex-1 max-w-[100px] bg-gray-200" />
+            <p className="text-gray-400 text-sm font-medium">+ our amazing assistant teachers and staff</p>
+            <div className="h-px flex-1 max-w-[100px] bg-gray-200" />
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative h-[350px] overflow-hidden">
-        <Image
-          src="/stock/nest_1.png.JPG"
-          alt="Visit us"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[#C4694D]/90" />
-        <div className="absolute top-10 left-10 animate-float opacity-30 hidden md:block">
+      {/* CTA — gradient with glassmorphism */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#C4694D] via-[#C4694D] to-[#A85540]">
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-white/5 rounded-full blur-2xl" />
+        <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-[#FFE066]/10 rounded-full blur-2xl" />
+        <div className="absolute top-10 left-10 animate-float opacity-20 hidden md:block">
           <Sparkles className="h-12 w-12 text-white" />
         </div>
-        <div className="absolute bottom-10 right-10 animate-bounce-slow opacity-30 hidden md:block">
+        <div className="absolute bottom-10 right-10 animate-bounce-slow opacity-20 hidden md:block">
           <Star className="h-10 w-10 text-white" />
         </div>
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl font-bold text-white">
-              Come Meet Us! 👋
+        <div className="flex items-center justify-center px-4 py-20">
+          <div className="max-w-2xl w-full relative">
+            <h2 className="text-4xl font-bold text-white text-center flex items-center justify-center gap-3">
+              Come Meet Us
+              <Heart className="h-10 w-10 text-[#FFE066]" />
             </h2>
-            <p className="mt-4 text-white/90 text-xl">
-              Schedule a tour and see our classrooms.
+            <p className="mt-4 text-white/80 text-xl text-center">
+              Schedule a tour and see our classrooms in person.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-[#C4694D] hover:bg-gray-100 rounded-full px-8 text-lg" asChild>
-                <Link href="/contact">Book a Tour 📅</Link>
-              </Button>
-              <Button size="lg" className="bg-[#00ADEF] hover:bg-[#0095CC] rounded-full px-8 text-lg" asChild>
-                <Link href="/programs">See Programs</Link>
-              </Button>
+            <div className="mt-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-[#C4694D] hover:bg-white/90 rounded-full px-8 text-lg font-semibold" asChild>
+                  <Link href="/contact">
+                    Book a Tour <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" className="bg-white/15 text-white hover:bg-white/25 border border-white/20 rounded-full px-8 text-lg" asChild>
+                  <Link href="/programs">See Programs</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

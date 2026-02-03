@@ -8,42 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { SCHOOL_INFO } from '@/constants';
-import { MapPin, Phone, Mail, Clock, Send, Sun, Star, Sparkles, Heart, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: 'Visit Us',
-    detail: SCHOOL_INFO.address,
-    color: 'bg-pink-500',
-    bgLight: 'bg-pink-50',
-    iconColor: 'text-pink-500',
-  },
-  {
-    icon: Phone,
-    title: 'Call Us',
-    detail: SCHOOL_INFO.phone,
-    color: 'bg-green-500',
-    bgLight: 'bg-green-50',
-    iconColor: 'text-green-500',
-  },
-  {
-    icon: Mail,
-    title: 'Email Us',
-    detail: SCHOOL_INFO.email,
-    color: 'bg-cyan-500',
-    bgLight: 'bg-cyan-50',
-    iconColor: 'text-cyan-500',
-  },
-  {
-    icon: Clock,
-    title: 'School Hours',
-    detail: SCHOOL_INFO.hours,
-    color: 'bg-amber-500',
-    bgLight: 'bg-amber-50',
-    iconColor: 'text-amber-500',
-  },
-];
+import { MapPin, Phone, Mail, Clock, Send, Star, Sparkles, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,68 +24,66 @@ export default function ContactPage() {
 
   return (
     <div>
-      {/* Hero — gradient only, no image */}
-      <section className="relative min-h-[380px] overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#00ADEF] to-[#0095CC]">
-        <div className="absolute top-10 right-16 animate-float opacity-20 hidden md:block">
-          <MessageCircle className="h-20 w-20 text-white" />
-        </div>
-        <div className="absolute bottom-12 left-16 animate-bounce-slow opacity-20 hidden md:block">
+      {/* Hero — compact with inline contact details */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#009AD8] to-[#0080B8]">
+        {/* Blobs */}
+        <div className="absolute top-[-40px] right-[-30px] w-64 h-64 bg-[#FFE066]/15 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-[-60px] left-[-40px] w-80 h-80 bg-[#FF6B6B]/10 rounded-full blur-3xl animate-bounce-slow" />
+        <div className="absolute top-12 right-20 animate-float opacity-15 hidden md:block">
           <Mail className="h-14 w-14 text-white" />
         </div>
-        <div className="absolute top-1/2 right-1/3 animate-wiggle opacity-10 hidden lg:block">
-          <Heart className="h-16 w-16 text-white" />
+        <div className="absolute bottom-12 left-16 animate-bounce-slow opacity-15 hidden md:block">
+          <Phone className="h-10 w-10 text-white" />
         </div>
-        {/* Decorative circles */}
-        <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full" />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-white/5 rounded-full" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-white">
-              <span className="text-[#FFE066] font-semibold text-lg">Get in Touch</span>
-              <h1 className="text-4xl sm:text-5xl font-bold mt-2 flex items-center gap-3">
-                Contact Us
-                <Phone className="h-10 w-10 text-[#FFE066]" />
-              </h1>
-              <p className="mt-4 text-xl text-white/90">
-                We&apos;d love to hear from you. Reach out and let&apos;s start the conversation.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-16 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto -mt-24 relative z-10">
-            {contactInfo.map((item) => {
-              const IconComponent = item.icon;
+        <div className="container mx-auto px-4 py-16 sm:py-20 relative">
+          <div className="max-w-2xl">
+            <span className="text-[#FFE066] font-semibold text-lg tracking-wide uppercase">Get in Touch</span>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white mt-3 leading-tight">
+              Contact Us
+            </h1>
+            <p className="mt-4 text-xl text-white/85 max-w-lg">
+              We&apos;d love to hear from you. Reach out and let&apos;s start the conversation.
+            </p>
+          </div>
+
+          {/* Inline contact strip */}
+          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { icon: MapPin, label: 'Visit Us', value: SCHOOL_INFO.address },
+              { icon: Phone, label: 'Call Us', value: SCHOOL_INFO.phone },
+              { icon: Mail, label: 'Email Us', value: SCHOOL_INFO.email },
+              { icon: Clock, label: 'Hours', value: SCHOOL_INFO.hours },
+            ].map((item) => {
+              const Icon = item.icon;
               return (
-                <Card key={item.title} className="rounded-2xl shadow-xl border-0 hover-grow">
-                  <CardContent className="p-6 text-center">
-                    <div className={`mx-auto w-14 h-14 rounded-full ${item.color} flex items-center justify-center mb-4 shadow-md`}>
-                      <IconComponent className="h-7 w-7 text-white" />
+                <div key={item.label} className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 group hover:bg-white/20 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-5 w-5 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-800 text-lg">{item.title}</h3>
-                    <p className="text-gray-500 text-sm mt-1">{item.detail}</p>
-                  </CardContent>
-                </Card>
+                    <div className="min-w-0">
+                      <p className="text-white/60 text-xs font-semibold uppercase tracking-wider">{item.label}</p>
+                      <p className="text-white text-sm font-medium truncate">{item.value}</p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Form + Map Section */}
+      {/* Main content — Form + Map side by side */}
       <section className="py-20 bg-[#FFF8F0] relative overflow-hidden">
         <div className="absolute top-10 right-10 animate-float opacity-20 hidden md:block">
-          <Sun className="h-16 w-16 text-amber-400" />
+          <Sparkles className="h-14 w-14 text-cyan-400" />
         </div>
         <div className="absolute bottom-20 left-10 animate-bounce-slow opacity-20 hidden md:block">
           <Star className="h-12 w-12 text-pink-400" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="grid gap-12 lg:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
             {/* Form */}
             <div>
               <span className="text-[#FF6B6B] font-semibold text-lg">Send a Message</span>
@@ -195,9 +158,8 @@ export default function ContactPage() {
               </Card>
             </div>
 
-            {/* Right column — map + quick links */}
+            {/* Right column — Google Map + Quick Links */}
             <div className="space-y-8">
-              {/* Map embed */}
               <div>
                 <span className="text-[#00ADEF] font-semibold text-lg">Location</span>
                 <h2 className="text-4xl font-bold text-gray-800 mt-2 flex items-center gap-3">
@@ -205,29 +167,43 @@ export default function ContactPage() {
                   <MapPin className="h-8 w-8 text-[#FF6B6B]" />
                 </h2>
                 <p className="mt-3 text-gray-500">
-                  G3 Manet Gardens, Nungua, Ghana
+                  G3 Manet Gardens, Nungua, Accra, Ghana
                 </p>
               </div>
-              <Card className="overflow-hidden rounded-3xl shadow-xl border-0">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-gradient-to-br from-[#E8F7FC] to-[#d4f0fc] flex items-center justify-center relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="mx-auto w-16 h-16 rounded-full bg-[#00ADEF] flex items-center justify-center mb-3 shadow-lg">
-                          <MapPin className="h-8 w-8 text-white" />
-                        </div>
-                        <p className="text-gray-700 font-semibold">G3 Manet Gardens, Nungua</p>
-                        <p className="text-gray-500 text-sm mt-1">Accra, Ghana</p>
-                      </div>
-                    </div>
-                    {/* Decorative dots */}
-                    <div className="absolute top-4 left-4 w-3 h-3 bg-[#FF6B6B]/30 rounded-full" />
-                    <div className="absolute top-8 right-8 w-4 h-4 bg-[#FFE066]/40 rounded-full" />
-                    <div className="absolute bottom-6 left-8 w-5 h-5 bg-[#00ADEF]/20 rounded-full" />
-                    <div className="absolute bottom-4 right-4 w-3 h-3 bg-pink-300/30 rounded-full" />
+
+              {/* Google Maps Embed */}
+              <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.6!2d-0.066!3d5.606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMjEuNiJOIDDCsDAzJzU3LjYiVw!5e0!3m2!1sen!2sgh!4v1700000000000"
+                  width="100%"
+                  height="350"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Mangers Nest International School Location"
+                  className="w-full"
+                />
+              </div>
+
+              {/* Directions button */}
+              <a
+                href="https://www.google.com/maps/search/Manet+Gardens+Nungua+Ghana"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-white rounded-2xl p-5 shadow-lg hover:shadow-xl transition-shadow group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00ADEF] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <MapPin className="h-6 w-6 text-white" />
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <p className="font-bold text-gray-800">Get Directions</p>
+                    <p className="text-sm text-gray-500">Open in Google Maps</p>
+                  </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-[#00ADEF] group-hover:translate-x-1 transition-transform" />
+              </a>
 
               {/* Quick Links */}
               <Card className="rounded-3xl shadow-xl border-0 overflow-hidden">
@@ -258,7 +234,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CTA — gradient only, no image */}
+      {/* CTA — gradient, no image */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#FF6B6B] via-[#FF6B6B] to-[#E55555]">
         <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/5 rounded-full" />
         <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-white/5 rounded-full" />
