@@ -1,11 +1,12 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from '@/components/ui/sheet';
+import { NAV_LINKS, SCHOOL_INFO, SCHOOL_NAME, SCHOOL_TAGLINE } from '@/constants';
+import { Briefcase, ClipboardList, GraduationCap, Home, Images, Info, MapPin, Menu, Phone, X } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
-import { SCHOOL_NAME, SCHOOL_TAGLINE, NAV_LINKS, SCHOOL_INFO } from '@/constants';
-import { Menu, Home, Info, GraduationCap, ClipboardList, Images, Phone, X, MapPin } from 'lucide-react';
 
 const navIcons: Record<string, React.ElementType> = {
   '/': Home,
@@ -13,6 +14,7 @@ const navIcons: Record<string, React.ElementType> = {
   '/programs': GraduationCap,
   '/admissions': ClipboardList,
   '/gallery': Images,
+  '/careers': Briefcase,
   '/contact': Phone,
 };
 
@@ -21,9 +23,16 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-[#4F7942]">{SCHOOL_NAME}</span>
+      <div className="container mx-auto flex h-20 items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-2 mr-6">
+          <Image
+            src="/logo/MNIS-short-transparent.png"
+            alt={SCHOOL_NAME}
+            width={68}
+            height={68}
+            className="h-16 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -32,12 +41,12 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-[#4F7942]"
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-[#00ADEF]"
             >
               {link.label}
             </Link>
           ))}
-          <Button asChild className="bg-[#4F7942] hover:bg-[#3d5f34]">
+          <Button asChild className="bg-[#00ADEF] hover:bg-[#0095CC] rounded-full">
             <Link href="/contact">Schedule a Visit</Link>
           </Button>
         </nav>
@@ -51,10 +60,16 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[85vw] max-w-[320px] p-0">
             {/* Header */}
-            <SheetHeader className="bg-[#4F7942] p-6 text-white">
+            <SheetHeader className="bg-[#00ADEF] p-6 text-white">
               <div className="flex items-center justify-between">
                 <div>
-                  <SheetTitle className="text-xl font-bold text-white">{SCHOOL_NAME}</SheetTitle>
+                  <Image
+                    src="/logo/MNIS-short-transparent.png"
+                    alt={SCHOOL_NAME}
+                    width={40}
+                    height={40}
+                    className="h-10 w-auto brightness-0 invert"
+                  />
                   <p className="text-sm text-white/80 mt-1">{SCHOOL_TAGLINE}</p>
                 </div>
                 <Button
@@ -77,10 +92,10 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-4 px-4 py-4 rounded-xl text-gray-700 hover:bg-[#4F7942]/10 hover:text-[#4F7942] transition-colors active:bg-[#4F7942]/20"
+                    className="flex items-center gap-4 px-4 py-4 rounded-xl text-gray-700 hover:bg-[#00ADEF]/10 hover:text-[#00ADEF] transition-colors active:bg-[#00ADEF]/20"
                   >
                     <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-[#4F7942]" />
+                      <Icon className="h-5 w-5 text-[#00ADEF]" />
                     </div>
                     <span className="text-lg font-medium">{link.label}</span>
                   </Link>
@@ -90,7 +105,7 @@ export function Header() {
 
             {/* Footer */}
             <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-gray-50">
-              <Button asChild className="w-full bg-[#4F7942] hover:bg-[#3d5f34] h-12 text-base">
+              <Button asChild className="w-full bg-[#00ADEF] hover:bg-[#0095CC] h-12 text-base">
                 <Link href="/contact" onClick={() => setOpen(false)}>
                   Schedule a Visit 📅
                 </Link>

@@ -91,13 +91,13 @@ A static school website where parents and visitors can learn about MangersNest S
 - Lots of whitespace
 - Soft colors
 
-### Colors
+### Colors (Updated from Mood Board)
 ```
-Primary: #4F7942 (Forest green - nature, growth)
-Secondary: #F5E6D3 (Warm cream - warmth)
+Primary: #C4694D (Terracotta - warm, earthy)
+Secondary: #1E3A5F (Navy blue - professional, trust)
 Accent: #E9967A (Soft coral - playful)
 Text: #2D3748
-Background: #FFFFFF
+Background: #FFFFFF / #FAF7F2 (warm cream)
 ```
 
 ### Typography

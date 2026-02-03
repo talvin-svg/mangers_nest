@@ -1,12 +1,13 @@
+import { NAV_LINKS, SCHOOL_INFO, SCHOOL_NAME, SCHOOL_MOTTO, SOCIAL_LINKS } from '@/constants';
+import { Clock, Facebook, Heart, Instagram, Mail, MapPin, Phone, Star, Sun, Twitter } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { SCHOOL_NAME, SCHOOL_INFO, NAV_LINKS, SOCIAL_LINKS } from '@/constants';
-import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Clock, Star, Heart, Sun } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#2D3748] text-white relative overflow-hidden">
+    <footer className="bg-[#1E3A5F] text-white relative overflow-hidden">
       {/* Floating decorations */}
       <div className="absolute top-10 right-10 animate-float opacity-10">
         <Star className="h-16 w-16 text-white" />
@@ -22,9 +23,15 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* School Info */}
           <div>
-            <h3 className="text-xl font-bold text-[#E9967A] mb-4">{SCHOOL_NAME} 🌱</h3>
+            <Image
+              src="/logo/MNIS-short-transparent.png"
+              alt={SCHOOL_NAME}
+              width={80}
+              height={80}
+              className="h-16 w-auto mb-4"
+            />
             <p className="text-gray-300 text-sm leading-relaxed">
-              Where little ones learn, play, and grow! 💕
+              {SCHOOL_MOTTO} 💕
             </p>
             <div className="flex gap-4 mt-4">
               <a href={SOCIAL_LINKS.facebook} className="text-gray-400 hover:text-white transition-colors">
@@ -89,7 +96,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-gray-400">
           <p>&copy; {currentYear} {SCHOOL_NAME}. All rights reserved.</p>
         </div>
       </div>

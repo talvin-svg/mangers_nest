@@ -1,5 +1,7 @@
-export const SCHOOL_NAME = "MangersNest";
+export const SCHOOL_NAME = "Mangers Nest International School";
+export const SCHOOL_SHORT_NAME = "MNIS";
 export const SCHOOL_TAGLINE = "Excellence Begins Here";
+export const SCHOOL_MOTTO = "Raising Kingdom Kids with Care and Compassion";
 export const SCHOOL_DESCRIPTION = "A safe, structured, and excellence-driven early learning environment preparing children to thrive in school and life.";
 
 export const SCHOOL_VISION = "To raise confident, skilled, and morally grounded children who excel academically, creatively, and socially from their earliest years.";
@@ -36,9 +38,9 @@ export const SCHOOL_OBJECTIVES = [
 ];
 
 export const SCHOOL_INFO = {
-  phone: "+1 (555) 123-4567",
-  email: "info@mangersnest.edu",
-  address: "123 Learning Lane, Springfield, CA 90210",
+  phone: "0257449003",
+  email: "mangersnest@gmail.com",
+  address: "G3 Manet Gardens, Nungua, Ghana",
   hours: "Monday - Friday: 7:30 AM - 5:30 PM",
 };
 
@@ -54,6 +56,7 @@ export const NAV_LINKS = [
   { label: "Programs", href: "/programs" },
   { label: "Admissions", href: "/admissions" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 
