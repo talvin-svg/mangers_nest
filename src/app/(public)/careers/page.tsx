@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { SCHOOL_NAME, SCHOOL_INFO } from '@/constants';
@@ -61,26 +62,18 @@ const openings = [
 export default function CareersPage() {
   return (
     <div>
-      {/* Hero — text-only with animated blobs */}
-      <section className="relative min-h-[420px] overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#009AD8] to-[#0080B8]">
-        {/* Morphing blobs */}
-        <div className="absolute top-[-60px] right-[-40px] w-72 h-72 bg-[#FFE066]/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-[-80px] left-[-60px] w-96 h-96 bg-[#FF6B6B]/15 rounded-full blur-3xl animate-bounce-slow" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-2xl" />
-        {/* Floating icons */}
-        <div className="absolute top-12 right-20 animate-float opacity-15 hidden md:block">
-          <Briefcase className="h-16 w-16 text-white" />
-        </div>
-        <div className="absolute bottom-16 left-16 animate-bounce-slow opacity-15 hidden md:block">
-          <Heart className="h-12 w-12 text-white" />
-        </div>
-        <div className="absolute top-1/3 right-1/3 animate-wiggle opacity-10 hidden lg:block">
-          <Star className="h-10 w-10 text-white" />
-        </div>
-        {/* Content */}
+      {/* Hero — with background image */}
+      <section className="relative min-h-[420px] overflow-hidden">
+        <Image
+          src="/stock/nest_13.png"
+          alt="Careers at MNIS"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#C4694D]/95 to-[#C4694D]/75" />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl text-white relative">
+            <div className="max-w-2xl text-white">
               <span className="text-[#FFE066] font-semibold text-lg tracking-wide uppercase">Careers at MNIS</span>
               <h1 className="text-5xl sm:text-6xl font-bold mt-3 leading-tight">
                 Join Our

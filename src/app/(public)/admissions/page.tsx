@@ -28,14 +28,14 @@ export default function AdmissionsPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[400px] overflow-hidden">
+      <section className="relative min-h-[420px] overflow-hidden">
         <Image
-          src="/stock/nest_2.png.JPG"
+          src="/stock/nest_6.png"
           alt="Join MNIS"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/90 to-[#00ADEF]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/95 to-[#00ADEF]/75" />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl text-white">
@@ -157,7 +157,7 @@ export default function AdmissionsPage() {
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/stock/nest_3.png.JPG"
+                  src="/stock/nest_8.png"
                   alt="School calendar"
                   fill
                   className="object-cover"
@@ -195,7 +195,7 @@ export default function AdmissionsPage() {
       {/* CTA */}
       <section className="relative h-[400px] overflow-hidden">
         <Image
-          src="/stock/nest_1.png.JPG"
+          src="/stock/nest_11.png"
           alt="Contact us"
           fill
           className="object-cover"

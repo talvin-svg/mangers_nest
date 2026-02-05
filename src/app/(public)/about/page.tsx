@@ -15,28 +15,23 @@ const valueColors = [
 
 const team = [
   { name: 'Dr. Maria Santos', role: 'Director', image: '/team/annika-pfp.jpeg' },
-  { name: 'Emily Thompson', role: 'Primary Lead', image: '/stock/nest_1.png.JPG' },
-  { name: 'James Chen', role: 'Toddler Lead', image: '/stock/nest_2.png.JPG' },
-  { name: 'Sarah Williams', role: 'Infant Lead', image: '/stock/nest_3.png.JPG' },
+  { name: 'Emily Thompson', role: 'Primary Lead', image: '/stock/nest_2.png' },
+  { name: 'James Chen', role: 'Toddler Lead', image: '/stock/nest_3.png' },
+  { name: 'Sarah Williams', role: 'Infant Lead', image: '/stock/nest_4.png' },
 ];
 
 export default function AboutPage() {
   return (
     <div>
-      {/* Hero — text-only gradient with animated blobs */}
-      <section className="relative min-h-[450px] overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#009AD8] to-[#0080B8]">
-        <div className="absolute top-[-50px] right-[-30px] w-72 h-72 bg-[#FFE066]/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-[-70px] left-[-50px] w-96 h-96 bg-[#FF6B6B]/15 rounded-full blur-3xl animate-bounce-slow" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-white/5 rounded-full blur-2xl" />
-        <div className="absolute top-14 right-24 animate-float opacity-15 hidden md:block">
-          <BookOpen className="h-16 w-16 text-white" />
-        </div>
-        <div className="absolute bottom-16 left-20 animate-bounce-slow opacity-15 hidden md:block">
-          <Heart className="h-12 w-12 text-white" />
-        </div>
-        <div className="absolute top-1/3 right-1/3 animate-wiggle opacity-10 hidden lg:block">
-          <Star className="h-10 w-10 text-white" />
-        </div>
+      {/* Hero — with background image */}
+      <section className="relative min-h-[420px] overflow-hidden">
+        <Image
+          src="/stock/nest-10.png"
+          alt="About MNIS"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/95 to-[#00ADEF]/75" />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl text-white relative">
@@ -157,7 +152,7 @@ export default function AboutPage() {
             <div className="relative order-2 lg:order-1">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/stock/nest_5.png.JPG"
+                  src="/stock/nest_5.png"
                   alt="Our school"
                   fill
                   className="object-cover"

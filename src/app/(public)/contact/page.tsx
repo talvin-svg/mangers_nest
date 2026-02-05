@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -24,19 +25,17 @@ export default function ContactPage() {
 
   return (
     <div>
-      {/* Hero — compact with inline contact details */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#00ADEF] via-[#009AD8] to-[#0080B8]">
-        {/* Blobs */}
-        <div className="absolute top-[-40px] right-[-30px] w-64 h-64 bg-[#FFE066]/15 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-[-60px] left-[-40px] w-80 h-80 bg-[#FF6B6B]/10 rounded-full blur-3xl animate-bounce-slow" />
-        <div className="absolute top-12 right-20 animate-float opacity-15 hidden md:block">
-          <Mail className="h-14 w-14 text-white" />
-        </div>
-        <div className="absolute bottom-12 left-16 animate-bounce-slow opacity-15 hidden md:block">
-          <Phone className="h-10 w-10 text-white" />
-        </div>
-
-        <div className="container mx-auto px-4 py-16 sm:py-20 relative">
+      {/* Hero — with background image */}
+      <section className="relative min-h-[420px] overflow-hidden">
+        <Image
+          src="/stock/nest_12.png"
+          alt="Contact Us"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/95 to-[#00ADEF]/75" />
+        <div className="absolute inset-0 flex items-center">
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-2xl">
             <span className="text-[#FFE066] font-semibold text-lg tracking-wide uppercase">Get in Touch</span>
             <h1 className="text-5xl sm:text-6xl font-bold text-white mt-3 leading-tight">
@@ -47,8 +46,14 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Inline contact strip */}
-          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4">
+        </div>
+        </div>
+      </section>
+
+      {/* Contact Info Strip */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-100">
             {[
               { icon: MapPin, label: 'Visit Us', value: SCHOOL_INFO.address },
               { icon: Phone, label: 'Call Us', value: SCHOOL_INFO.phone },
@@ -57,16 +62,12 @@ export default function ContactPage() {
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.label} className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 group hover:bg-white/20 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Icon className="h-5 w-5 text-white" />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-white/60 text-xs font-semibold uppercase tracking-wider">{item.label}</p>
-                      <p className="text-white text-sm font-medium truncate">{item.value}</p>
-                    </div>
+                <div key={item.label} className="py-6 px-4 text-center">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00ADEF]/10 flex items-center justify-center mx-auto mb-3">
+                    <Icon className="h-6 w-6 text-[#00ADEF]" />
                   </div>
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-sm font-medium text-gray-800 mt-1">{item.value}</p>
                 </div>
               );
             })}

@@ -18,7 +18,7 @@ const programs = [
       'Nurturing care',
       'Flexible schedules',
     ],
-    image: '/stock/nest_1.png.JPG',
+    image: '/stock/nest_1.png',
   },
   {
     name: 'Pre School',
@@ -34,7 +34,7 @@ const programs = [
       'Art & music',
       'Outdoor exploration',
     ],
-    image: '/stock/nest_2.png.JPG',
+    image: '/stock/nest_2.png',
   },
   {
     name: 'Primary',
@@ -50,7 +50,7 @@ const programs = [
       'Life skills',
       'Kindergarten ready',
     ],
-    image: '/stock/nest_3.png.JPG',
+    image: '/stock/nest_3.png',
   },
 ];
 
@@ -77,7 +77,7 @@ export default function ProgramsPage() {
       {/* Hero – Image blended into background */}
       <section className="relative min-h-[420px] overflow-hidden">
         <Image
-          src="/stock/nest_5.png.JPG"
+          src="/stock/nest_5.png"
           alt="Children learning together"
           fill
           className="object-cover"
@@ -282,7 +282,7 @@ export default function ProgramsPage() {
       <section className="relative overflow-hidden">
         <div className="relative h-[420px]">
           <Image
-            src="/stock/nest_4.png.JPG"
+            src="/stock/nest_4.png"
             alt="Join us"
             fill
             className="object-cover"

@@ -5,26 +5,28 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Camera, Play, Sun, Star, Sparkles, Heart } from 'lucide-react';
 
 const galleryImages = [
-  { src: '/stock/nest_1.png.JPG', title: 'Learning Together', category: 'Classroom', tall: true },
-  { src: '/stock/nest_2.png.JPG', title: 'Creative Activities', category: 'Art', tall: false },
-  { src: '/stock/nest_3.png.JPG', title: 'Growing Minds', category: 'Activities', tall: false },
-  { src: '/stock/nest_4.png.JPG', title: 'Happy Moments', category: 'Events', tall: true },
-  { src: '/stock/nest_5.png.JPG', title: 'Our Community', category: 'School Life', tall: false },
-  { src: '/stock/MNIS_Banner.png', title: 'Welcome to MNIS', category: 'Campus', tall: false },
+  { src: '/stock/nest_1.png', title: 'Learning Together', category: 'Classroom', tall: true },
+  { src: '/stock/nest_6.png', title: 'Creative Activities', category: 'Art', tall: false },
+  { src: '/stock/nest_7.png', title: 'Growing Minds', category: 'Activities', tall: false },
+  { src: '/stock/nest_8.png', title: 'Happy Moments', category: 'Events', tall: true },
+  { src: '/stock/nest_9.png', title: 'Our Community', category: 'School Life', tall: false },
+  { src: '/stock/nest_11.png', title: 'Outdoor Play', category: 'Campus', tall: false },
+  { src: '/stock/nest_12.png', title: 'Creative Learning', category: 'Activities', tall: true },
+  { src: '/stock/nest_13.png', title: 'Fun Times', category: 'Events', tall: false },
 ];
 
 export default function GalleryPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[400px] overflow-hidden">
+      <section className="relative min-h-[420px] overflow-hidden">
         <Image
-          src="/stock/nest_3.png.JPG"
+          src="/stock/nest_7.png"
           alt="Gallery"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/90 to-[#FF6B6B]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FF6B6B]/95 to-[#FF6B6B]/75" />
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl text-white">
@@ -113,7 +115,7 @@ export default function GalleryPage() {
       {/* CTA */}
       <section className="relative h-[400px] overflow-hidden">
         <Image
-          src="/stock/nest_5.png.JPG"
+          src="/stock/nest_9.png"
           alt="Visit us"
           fill
           className="object-cover"

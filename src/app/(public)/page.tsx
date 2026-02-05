@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/stock/nest_1.png.JPG"
+                  src="/stock/nest_1.png"
                   alt="Children learning"
                   fill
                   className="object-cover"
@@ -159,7 +159,7 @@ export default function HomePage() {
               ];
               const icons = [Baby, Palette, BookOpen];
               const Icon = icons[i];
-              const images = ['/stock/nest_2.png.JPG', '/stock/nest_3.png.JPG', '/stock/nest_4.png.JPG'];
+              const images = ['/stock/nest_2.png', '/stock/nest_3.png', '/stock/nest_4.png'];
               return (
                 <Card key={program.name} className="overflow-hidden hover-grow shadow-xl border-0">
                   <div className="relative h-48">
@@ -236,7 +236,7 @@ export default function HomePage() {
       {/* Image Section - Full Width */}
       <section className="relative h-[400px] overflow-hidden">
         <Image
-          src="/stock/nest_5.png.JPG"
+          src="/stock/nest_5.png"
           alt="School activities"
           fill
           className="object-cover object-top"
