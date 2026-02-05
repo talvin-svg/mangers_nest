@@ -54,11 +54,11 @@ export default function HomePage() {
             priority
           />
         </div>
-        <div className="bg-[#FFF8F0] py-8">
+        <div className="bg-[#FFF8F0] py-12">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
               <Button size="lg" className="bg-[#00ADEF] hover:bg-[#0095CC] text-lg rounded-full px-8">
-                <Link href="/contact">Schedule a Visit 📅</Link>
+                <Link href="/contact">Schedule a Visit</Link>
               </Button>
               <Button size="lg" className="bg-[#FF6B6B] hover:bg-[#E55555] text-lg rounded-full px-8">
                 <Link href="/programs">Our Programs</Link>
@@ -118,7 +118,7 @@ export default function HomePage() {
             <div>
               <span className="text-[#FF6B6B] font-semibold text-lg">Welcome to MNIS</span>
               <h2 className="text-4xl font-bold text-gray-800 mt-2">
-                Where Every Child Shines ✨
+                Where Every Child Shines
               </h2>
               <p className="mt-6 text-gray-600 text-lg leading-relaxed">
                 At Mangers Nest International School, we believe every child is unique and full of potential. Our nurturing environment combines academic excellence with creative exploration.
@@ -146,7 +146,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="text-[#00ADEF] font-semibold text-lg">Our Programs</span>
             <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Programs for Every Age 🌈
+              Programs for Every Age
             </h2>
             <p className="mt-4 text-gray-600 text-lg">Something special for every stage of growth!</p>
           </div>
@@ -206,7 +206,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="text-[#FF6B6B] font-semibold text-lg">What Parents Say</span>
             <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Happy Families 💕
+              Happy Families ❤️
             </h2>
           </div>
           <div className="max-w-xl mx-auto">
@@ -241,7 +241,7 @@ export default function HomePage() {
           fill
           className="object-cover object-top"
         />
-        <div className="absolute inset-0 bg-[#00ADEF]/80" />
+        <div className="absolute inset-0 bg-[#C4694D]/85" />
         <div className="absolute top-10 left-10 animate-float opacity-30 hidden md:block">
           <Sparkles className="h-12 w-12 text-white" />
         </div>
@@ -251,16 +251,16 @@ export default function HomePage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-2xl">
             <h2 className="text-4xl font-bold text-white">
-              Ready to Join Our Family? 🏫
+              Ready to Join Our Family?
             </h2>
-            <p className="mt-4 text-white/90 text-xl">
+            <p className="mt-4 text-white/80 text-xl">
               Schedule a tour and see why families love MNIS!
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-[#00ADEF] hover:bg-gray-100 rounded-full px-8 text-lg">
+              <Button size="lg" className="bg-white text-[#C4694D] hover:bg-white/90 rounded-full px-8 text-lg font-semibold">
                 <Link href="/contact">Book a Tour</Link>
               </Button>
-              <Button size="lg" className="bg-[#FF6B6B] hover:bg-[#E55555] rounded-full px-8 text-lg">
+              <Button size="lg" className="bg-white/15 text-white hover:bg-white/25 border border-white/20 rounded-full px-8 text-lg">
                 <Link href="/admissions">Apply Now</Link>
               </Button>
             </div>

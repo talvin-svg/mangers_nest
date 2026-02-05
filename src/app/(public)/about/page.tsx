@@ -1,9 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { SCHOOL_NAME, SCHOOL_VISION, SCHOOL_MISSION, CORE_VALUES, SCHOOL_OBJECTIVES } from '@/constants';
 import { Heart, Star, Trophy, Shield, Lightbulb, Users, Target, Eye, Sparkles, BookOpen, ChevronRight, ArrowRight } from 'lucide-react';
 
@@ -12,7 +9,7 @@ const valueColors = [
   { ring: 'border-amber-400 bg-amber-400', text: 'text-amber-500', bg: 'bg-amber-50' },
   { ring: 'border-[#00ADEF] bg-[#00ADEF]', text: 'text-[#00ADEF]', bg: 'bg-cyan-50' },
   { ring: 'border-pink-400 bg-pink-400', text: 'text-pink-500', bg: 'bg-pink-50' },
-  { ring: 'border-purple-400 bg-purple-400', text: 'text-purple-500', bg: 'bg-purple-50' },
+  { ring: 'border-[#C4694D] bg-[#C4694D]', text: 'text-[#C4694D]', bg: 'bg-orange-50' },
   { ring: 'border-green-400 bg-green-400', text: 'text-green-500', bg: 'bg-green-50' },
 ];
 
@@ -61,73 +58,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission — tabbed interface */}
-      <section className="py-20 bg-[#FFF8F0] relative overflow-hidden">
-        <div className="absolute top-10 right-10 animate-float opacity-20 hidden md:block">
-          <Eye className="h-16 w-16 text-purple-300" />
+      {/* Vision & Mission — Side by side cards */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute top-20 left-10 animate-wiggle opacity-10 hidden lg:block">
+          <Sparkles className="h-20 w-20 text-cyan-400" />
         </div>
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto">
-            <Tabs defaultValue="vision" className="gap-0">
-              <TabsList className="mx-auto bg-white shadow-lg rounded-full p-1.5 h-auto gap-1 mb-10">
-                <TabsTrigger
-                  value="vision"
-                  className="rounded-full px-8 py-3 text-base font-semibold data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:shadow-md transition-all"
-                >
-                  <Eye className="h-5 w-5 mr-2" />
-                  Our Vision
-                </TabsTrigger>
-                <TabsTrigger
-                  value="mission"
-                  className="rounded-full px-8 py-3 text-base font-semibold data-[state=active]:bg-[#00ADEF] data-[state=active]:text-white data-[state=active]:shadow-md transition-all"
-                >
-                  <Target className="h-5 w-5 mr-2" />
-                  Our Mission
-                </TabsTrigger>
-              </TabsList>
+          <div className="text-center mb-14">
+            <span className="text-[#00ADEF] font-semibold text-lg">Who We Are</span>
+            <h2 className="text-4xl font-bold text-gray-800 mt-2">
+              Vision & Mission
+            </h2>
+          </div>
 
-              <TabsContent value="vision">
-                <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-3xl p-10 sm:p-14 text-white relative overflow-hidden shadow-2xl">
-                  <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/5 rounded-full" />
-                  <div className="absolute bottom-6 right-8 opacity-10">
-                    <Eye className="h-32 w-32" />
-                  </div>
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mb-6">
-                      <Eye className="h-8 w-8 text-white" />
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold">Our Vision</h2>
-                    <p className="mt-6 text-white/85 text-xl leading-relaxed max-w-xl">
-                      {SCHOOL_VISION}
-                    </p>
-                  </div>
+          <div className="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
+            {/* Vision Card - Light Green */}
+            <div className="group bg-gradient-to-br from-emerald-500 to-green-600 rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/10 rounded-full" />
+              <div className="absolute bottom-4 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Eye className="h-24 w-24" />
+              </div>
+              <div className="relative">
+                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Eye className="h-7 w-7 text-white" />
                 </div>
-              </TabsContent>
+                <h3 className="text-2xl font-bold">Our Vision</h3>
+                <p className="mt-4 text-white/90 leading-relaxed">
+                  {SCHOOL_VISION}
+                </p>
+              </div>
+            </div>
 
-              <TabsContent value="mission">
-                <div className="bg-gradient-to-br from-[#00ADEF] to-[#0080B8] rounded-3xl p-10 sm:p-14 text-white relative overflow-hidden shadow-2xl">
-                  <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-white/5 rounded-full" />
-                  <div className="absolute top-6 right-8 opacity-10">
-                    <Target className="h-32 w-32" />
-                  </div>
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mb-6">
-                      <Target className="h-8 w-8 text-white" />
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold">Our Mission</h2>
-                    <p className="mt-6 text-white/85 text-xl leading-relaxed max-w-xl">
-                      {SCHOOL_MISSION}
-                    </p>
-                  </div>
+            {/* Mission Card - Yellow */}
+            <div className="group bg-gradient-to-br from-amber-400 to-yellow-500 rounded-3xl p-8 sm:p-10 relative overflow-hidden shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-white/20 rounded-full" />
+              <div className="absolute top-4 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                <Target className="h-24 w-24 text-amber-800" />
+              </div>
+              <div className="relative">
+                <div className="w-14 h-14 rounded-2xl bg-white/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                  <Target className="h-7 w-7 text-amber-800" />
                 </div>
-              </TabsContent>
-            </Tabs>
+                <h3 className="text-2xl font-bold text-amber-900">Our Mission</h3>
+                <p className="mt-4 text-amber-900/80 leading-relaxed">
+                  {SCHOOL_MISSION}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Core Values — horizontal snap-scroll */}
-      <section id="values" className="py-20 bg-white relative overflow-hidden scroll-mt-24">
+      {/* Core Values — stacked grid */}
+      <section id="values" className="py-20 bg-[#FFF8F0] relative overflow-hidden scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <span className="text-[#FF6B6B] font-semibold text-lg">What We Stand For</span>
@@ -136,20 +119,18 @@ export default function AboutPage() {
               <Trophy className="h-9 w-9 text-[#FFE066]" />
             </h2>
           </div>
-        </div>
 
-        {/* Scrollable strip — full bleed */}
-        <div className="relative">
-          <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory px-[max(1rem,calc((100vw-72rem)/2+1rem))] pb-6 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
+          {/* Stacked cards - centered */}
+          <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
             {CORE_VALUES.map((value, i) => {
               const Icon = valueIcons[i];
               const c = valueColors[i];
               return (
                 <div
                   key={value.title}
-                  className="snap-center flex-shrink-0 w-[300px] sm:w-[340px] group"
+                  className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
-                  <div className={`${c.bg} border-2 ${c.ring.split(' ')[0]} rounded-3xl p-8 h-full relative overflow-hidden hover-grow`}>
+                  <div className={`bg-white border-2 ${c.ring.split(' ')[0]} rounded-3xl p-8 h-full relative overflow-hidden shadow-sm hover:shadow-xl transition-shadow`}>
                     {/* Large faded number */}
                     <span className={`absolute top-4 right-6 text-8xl font-black ${c.text} opacity-10 select-none leading-none`}>
                       {String(i + 1).padStart(2, '0')}
@@ -165,64 +146,60 @@ export default function AboutPage() {
               );
             })}
           </div>
-          {/* Scroll hint */}
-          <div className="flex items-center justify-center gap-2 mt-4 text-gray-400 text-sm">
-            <span>Swipe to explore</span>
-            <ArrowRight className="h-4 w-4 animate-bounce-slow" />
-          </div>
         </div>
       </section>
 
-      {/* Why Choose Us — editorial text with inline highlights */}
-      <section className="py-20 bg-gradient-to-b from-[#E8F7FC] to-white relative overflow-hidden">
-        <div className="absolute bottom-10 right-10 animate-float opacity-10 hidden lg:block">
-          <Star className="h-14 w-14 text-amber-400" />
-        </div>
-        <div className="absolute top-20 left-10 animate-wiggle opacity-10 hidden lg:block">
-          <Sparkles className="h-16 w-16 text-cyan-400" />
-        </div>
+      {/* Why Choose Us — Side by side with image */}
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto">
-            <span className="text-[#00ADEF] font-semibold text-lg">Why Choose MNIS</span>
-            <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-12">
-              What Sets Us Apart
-            </h2>
-
-            <div className="space-y-8">
-              {SCHOOL_OBJECTIVES.map((objective, i) => (
-                <div
-                  key={i}
-                  className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:rounded-full group"
-                  style={{
-                    // Alternating left-border colors
-                    ['--tw-before-bg' as string]: 'currentColor',
-                  }}
-                >
-                  <div
-                    className={`absolute left-0 top-0 bottom-0 w-1 rounded-full ${
-                      i === 0 ? 'bg-[#00ADEF]' : i === 1 ? 'bg-[#FF6B6B]' : 'bg-[#FFE066]'
-                    }`}
-                  />
-                  <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed font-medium">
-                    {objective}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Image tucked in below */}
-            <div className="mt-16 relative">
-              <div className="aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="/stock/nest_5.png.JPG"
                   alt="Our school"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00ADEF]/40 to-transparent" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#FFE066] rounded-full -z-10" />
-              <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#FF6B6B] rounded-full -z-10" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#00ADEF] rounded-full -z-10" />
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <span className="text-[#00ADEF] font-semibold text-lg">Why Choose MNIS</span>
+              <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-8">
+                What Sets Us Apart
+              </h2>
+
+              <div className="space-y-5">
+                {SCHOOL_OBJECTIVES.map((objective, i) => {
+                  const colors = ['bg-[#00ADEF]', 'bg-[#FF6B6B]', 'bg-[#FFE066]'];
+                  const icons = [BookOpen, Shield, Users];
+                  const Icon = icons[i] || BookOpen;
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-start gap-4 p-6 bg-gray-50 rounded-3xl hover:bg-gray-100 transition-colors group"
+                    >
+                      <div className={`w-14 h-14 rounded-2xl ${colors[i]} flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                        <Icon className="h-7 w-7 text-white" />
+                      </div>
+                      <p className="text-gray-700 leading-relaxed font-medium pt-3">
+                        {objective}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <Button size="lg" className="mt-8 bg-[#00ADEF] hover:bg-[#0095CC] rounded-full px-8" asChild>
+                <Link href="/contact">
+                  Schedule a Visit <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -247,7 +224,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {team.map((member, i) => {
-              const colors = ['bg-[#FF6B6B]', 'bg-[#00ADEF]', 'bg-[#FFE066]', 'bg-purple-500'];
+              const colors = ['bg-[#FF6B6B]', 'bg-[#00ADEF]', 'bg-[#FFE066]', 'bg-[#C4694D]'];
               const textColors = ['text-white', 'text-white', 'text-amber-900', 'text-white'];
               return (
                 <div key={member.name} className="group relative">

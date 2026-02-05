@@ -30,7 +30,7 @@ export default function GalleryPage() {
             <div className="max-w-2xl text-white">
               <span className="text-[#FFE066] font-semibold text-lg">Photo Gallery</span>
               <h1 className="text-4xl sm:text-5xl font-bold mt-2">
-                Take a Peek! 📸
+                Take a Peek
               </h1>
               <p className="mt-4 text-xl text-white/90">
                 See what makes our school special.
@@ -51,7 +51,7 @@ export default function GalleryPage() {
               <span className="font-semibold text-lg">Watch our virtual tour!</span>
             </div>
             <Button size="lg" className="bg-white text-[#00ADEF] hover:bg-gray-100 rounded-full px-8">
-              Play Video 🎬
+              Play Video
             </Button>
           </div>
         </div>
@@ -72,7 +72,7 @@ export default function GalleryPage() {
           <div className="text-center mb-12">
             <span className="text-[#00ADEF] font-semibold text-lg">Our Moments</span>
             <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Life at MNIS 🌟
+              Life at MNIS
             </h2>
           </div>
           <div className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
@@ -105,7 +105,7 @@ export default function GalleryPage() {
         <div className="container mx-auto px-4 text-center">
           <p className="text-gray-800 font-medium text-lg">
             <Camera className="inline h-6 w-6 mr-2" />
-            More photos coming soon as we grow! Stay tuned 📷
+            More photos coming soon as we grow! Stay tuned.
           </p>
         </div>
       </section>
@@ -128,14 +128,14 @@ export default function GalleryPage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-2xl">
             <h2 className="text-4xl font-bold text-white">
-              Want to See More? 👀
+              Want to See More?
             </h2>
             <p className="mt-4 text-white/90 text-xl">
               Nothing beats visiting in person!
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-[#00ADEF] hover:bg-gray-100 rounded-full px-8 text-lg" asChild>
-                <Link href="/contact">Book a Tour 📅</Link>
+                <Link href="/contact">Book a Tour</Link>
               </Button>
               <Button size="lg" className="bg-[#FF6B6B] hover:bg-[#E55555] rounded-full px-8 text-lg" asChild>
                 <Link href="/programs">See Programs</Link>

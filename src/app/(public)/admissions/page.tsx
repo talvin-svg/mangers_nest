@@ -13,15 +13,15 @@ const steps = [
 ];
 
 const tuition = [
-  { program: 'Creche', price: 'Contact Us', emoji: '👶', color: 'from-pink-400 to-pink-500' },
-  { program: 'Pre School', price: 'Contact Us', emoji: '🧒', color: 'from-cyan-400 to-cyan-500' },
-  { program: 'Primary', price: 'Contact Us', emoji: '🎒', color: 'from-amber-400 to-amber-500' },
+  { program: 'Creche', price: 'Contact Us', color: 'from-pink-400 to-pink-500' },
+  { program: 'Pre School', price: 'Contact Us', color: 'from-cyan-400 to-cyan-500' },
+  { program: 'Primary', price: 'Contact Us', color: 'from-amber-400 to-amber-500' },
 ];
 
 const dates = [
-  { event: 'Open House', date: '1st Saturday each month', emoji: '🏠' },
-  { event: 'Fall Applications', date: 'Now Open', emoji: '🍂' },
-  { event: 'School Starts', date: 'Contact for dates', emoji: '🎒' },
+  { event: 'Open House', date: '1st Saturday each month' },
+  { event: 'Fall Applications', date: 'Now Open' },
+  { event: 'School Starts', date: 'Contact for dates' },
 ];
 
 export default function AdmissionsPage() {
@@ -41,7 +41,7 @@ export default function AdmissionsPage() {
             <div className="max-w-2xl text-white">
               <span className="text-[#FFE066] font-semibold text-lg">Enroll Today</span>
               <h1 className="text-4xl sm:text-5xl font-bold mt-2">
-                Join Our Family 👋
+                Join Our Family
               </h1>
               <p className="mt-4 text-xl text-white/90">
                 Getting started is easy! We can&apos;t wait to meet you.
@@ -63,7 +63,7 @@ export default function AdmissionsPage() {
           <div className="text-center mb-12">
             <span className="text-[#FF6B6B] font-semibold text-lg">Simple Process</span>
             <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              How to Enroll ✨
+              How to Enroll
             </h2>
           </div>
           <div className="max-w-5xl mx-auto">
@@ -126,14 +126,13 @@ export default function AdmissionsPage() {
           <div className="text-center mb-12">
             <span className="text-[#00ADEF] font-semibold text-lg">Investment</span>
             <h2 className="text-4xl font-bold text-gray-800 mt-2">
-              Tuition 💰
+              Tuition
             </h2>
           </div>
           <div className="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto">
             {tuition.map((t) => (
               <Card key={t.program} className="text-center hover-grow rounded-3xl shadow-xl border-0 overflow-hidden">
-                <div className={`h-32 bg-gradient-to-br ${t.color} flex items-center justify-center`}>
-                  <span className="text-6xl">{t.emoji}</span>
+                <div className={`h-24 bg-gradient-to-br ${t.color} flex items-center justify-center`}>
                 </div>
                 <CardContent className="pt-6 pb-6">
                   <h3 className="font-bold text-gray-800 text-xl">{t.program}</h3>
@@ -178,7 +177,7 @@ export default function AdmissionsPage() {
                   <div className="space-y-4">
                     {dates.map((d, i) => (
                       <div key={i} className="flex items-center gap-4 pb-4 border-b last:border-b-0 last:pb-0">
-                        <span className="text-3xl">{d.emoji}</span>
+                        <div className="w-3 h-3 rounded-full bg-[#00ADEF]" />
                         <div className="flex-1">
                           <p className="font-bold text-gray-800">{d.event}</p>
                           <p className="text-sm text-[#00ADEF] font-medium">{d.date}</p>
@@ -211,14 +210,14 @@ export default function AdmissionsPage() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4">
           <div className="max-w-2xl">
             <h2 className="text-4xl font-bold text-white">
-              Ready? Let&apos;s Talk! 📞
+              Ready? Let&apos;s Talk!
             </h2>
             <p className="mt-4 text-white/90 text-xl">
               We&apos;d love to meet your family.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-[#C4694D] hover:bg-gray-100 rounded-full px-8 text-lg" asChild>
-                <Link href="/contact">Contact Us 💬</Link>
+                <Link href="/contact">Contact Us</Link>
               </Button>
               <Button size="lg" className="bg-[#00ADEF] hover:bg-[#0095CC] rounded-full px-8 text-lg" asChild>
                 <a href={`tel:${SCHOOL_INFO.phone}`}>

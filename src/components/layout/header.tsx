@@ -107,7 +107,7 @@ export function Header() {
             <div className="absolute bottom-0 left-0 right-0 p-4 border-t bg-gray-50">
               <Button asChild className="w-full bg-[#00ADEF] hover:bg-[#0095CC] h-12 text-base">
                 <Link href="/contact" onClick={() => setOpen(false)}>
-                  Schedule a Visit 📅
+                  Schedule a Visit
                 </Link>
               </Button>
               <div className="flex items-center gap-2 mt-4 text-sm text-gray-500 justify-center">
